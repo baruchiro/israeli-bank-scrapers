@@ -13,6 +13,7 @@ import {
 const BASE_URL = 'https://www.mizrahi-tefahot.co.il';
 const LOGIN_URL = `${BASE_URL}/he/bank/Pages/Default.aspx`;
 const AFTER_LOGIN_BASE_URL = 'https://mto.mizrahi-tefahot.co.il/ngOnline/index.html#/main/uis/osh/p428/';
+const LEGACY_TRANSACTION_URL = 'https://mto.mizrahi-tefahot.co.il/ngOnline/index.html#/main/uis/legacy/Osh/p428//legacy.Osh.p428';
 const DATE_FORMAT = 'DD/MM/YY';
 
 async function fetchTransactionsForAccount(page, startDate, accountId) {
@@ -108,6 +109,8 @@ class MizrahiScraper extends BaseScraperWithBrowser {
     const defaultStartMoment = moment().subtract(1, 'years').add(1, 'day');
     const startDate = this.options.startDate || defaultStartMoment.toDate();
     const startMoment = moment.max(defaultStartMoment, moment(startDate));
+
+    await this.navigateTo(LEGACY_TRANSACTION_URL);
 
     const accounts = await fetchTransactions(this.page, startMoment);
 
