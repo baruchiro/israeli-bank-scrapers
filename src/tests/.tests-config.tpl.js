@@ -1,7 +1,7 @@
 const path = require('path');
 
 const startDate = new Date();
-startDate.setMonth(startDate.getMonth() - 1);
+startDate.setMonth(startDate.getMonth() - 3);
 
 module.exports = {
   options: { // options object that is passed to the scrapers. see more in readme.md file
