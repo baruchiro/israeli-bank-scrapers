@@ -10,7 +10,7 @@ import {
 } from '../transactions';
 import {
   ScraperOptions,
-  ScraperErrorTypes, ScaperScrapingResult, ScraperCredentials,
+  ScraperErrorTypes, ScraperScrapingResult, ScraperCredentials,
 } from './base-scraper';
 
 const BASE_URL = 'https://start.telebank.co.il';
@@ -62,7 +62,7 @@ function convertTransactions(txns: ScrapedTransaction[], txnStatus: TransactionS
 }
 
 
-async function fetchAccountData(page: Page, options: ScraperOptions): Promise<ScaperScrapingResult> {
+async function fetchAccountData(page: Page, options: ScraperOptions): Promise<ScraperScrapingResult> {
   const apiSiteUrl = `${BASE_URL}/Titan/gatewayAPI`;
 
   const accountDataUrl = `${apiSiteUrl}/userAccountsData`;

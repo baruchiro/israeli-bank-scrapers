@@ -167,4 +167,4 @@ function getLoginOptions(credentials) {
 ```
 
 ### Overriding fetchData()
-You can override this async function however way you want, as long as your return results as `ScaperScrapingResult` (checkout declaration [here](./src/scrapers/base-scraper.ts#L151)).
+You can override this async function however way you want, as long as your return results as `ScraperScrapingResult` (checkout declaration [here](./src/scrapers/base-scraper.ts#L151)).

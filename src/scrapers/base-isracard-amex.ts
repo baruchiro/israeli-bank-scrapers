@@ -18,7 +18,7 @@ import {
 } from '../transactions';
 import {
   ScraperErrorTypes,
-  ScraperOptions, ScaperScrapingResult, ScaperProgressTypes,
+  ScraperOptions, ScraperScrapingResult, ScraperProgressTypes,
   ScraperCredentials,
 } from './base-scraper';
 import { getDebug } from '../helpers/debug';
@@ -336,7 +336,7 @@ class IsracardAmexBaseScraper extends BaseScraperWithBrowser {
     this.servicesUrl = `${baseUrl}/services/ProxyRequestHandler.ashx`;
   }
 
-  async login(credentials: ScraperCredentials): Promise<ScaperScrapingResult> {
+  async login(credentials: ScraperCredentials): Promise<ScraperScrapingResult> {
     await this.page.setRequestInterception(true);
     this.page.on('request', (request) => {
       if (request.url().includes('detector-dom.min.js')) {
@@ -350,7 +350,7 @@ class IsracardAmexBaseScraper extends BaseScraperWithBrowser {
     debug('navigate to login page');
     await this.navigateTo(`${this.baseUrl}/personalarea/Login`);
 
-    this.emitProgress(ScaperProgressTypes.LoggingIn);
+    this.emitProgress(ScraperProgressTypes.LoggingIn);
 
     const validateUrl = `${this.servicesUrl}?reqName=ValidateIdData`;
     const validateRequest = {
@@ -384,19 +384,19 @@ class IsracardAmexBaseScraper extends BaseScraperWithBrowser {
       debug(`user login with status '${loginResult?.status}'`);
 
       if (loginResult && loginResult.status === '1') {
-        this.emitProgress(ScaperProgressTypes.LoginSuccess);
+        this.emitProgress(ScraperProgressTypes.LoginSuccess);
         return { success: true };
       }
 
       if (loginResult && loginResult.status === '3') {
-        this.emitProgress(ScaperProgressTypes.ChangePassword);
+        this.emitProgress(ScraperProgressTypes.ChangePassword);
         return {
           success: false,
           errorType: ScraperErrorTypes.ChangePassword,
         };
       }
 
-      this.emitProgress(ScaperProgressTypes.LoginFailed);
+      this.emitProgress(ScraperProgressTypes.LoginFailed);
       return {
         success: false,
         errorType: ScraperErrorTypes.InvalidPassword,
@@ -404,14 +404,14 @@ class IsracardAmexBaseScraper extends BaseScraperWithBrowser {
     }
 
     if (validateReturnCode === '4') {
-      this.emitProgress(ScaperProgressTypes.ChangePassword);
+      this.emitProgress(ScraperProgressTypes.ChangePassword);
       return {
         success: false,
         errorType: ScraperErrorTypes.ChangePassword,
       };
     }
 
-    this.emitProgress(ScaperProgressTypes.LoginFailed);
+    this.emitProgress(ScraperProgressTypes.LoginFailed);
     return {
       success: false,
       errorType: ScraperErrorTypes.InvalidPassword,

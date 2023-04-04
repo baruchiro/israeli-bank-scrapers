@@ -16,7 +16,7 @@ export enum ScraperErrorTypes {
   General = 'GENERAL_ERROR'
 }
 
-export interface ScaperLoginResult {
+export interface ScraperLoginResult {
   success: boolean;
   errorType?: ScraperErrorTypes;
   errorMessage?: string; // only on success=false
@@ -29,7 +29,7 @@ export interface FutureDebit {
   bankAccountNumber?: string;
 }
 
-export interface ScaperScrapingResult {
+export interface ScraperScrapingResult {
   success: boolean;
   accounts?: TransactionsAccount[];
   futureDebits?: FutureDebit[];
@@ -140,7 +140,7 @@ export interface OutputDataOptions {
   enableTransactionsFilterByDate?: boolean;
 }
 
-export enum ScaperProgressTypes {
+export enum ScraperProgressTypes {
   Initializing = 'INITIALIZING',
   StartScraping = 'START_SCRAPING',
   LoggingIn = 'LOGGING_IN',
@@ -175,12 +175,12 @@ export class BaseScraper {
 
   // eslint-disable-next-line  @typescript-eslint/require-await
   async initialize() {
-    this.emitProgress(ScaperProgressTypes.Initializing);
+    this.emitProgress(ScraperProgressTypes.Initializing);
     moment.tz.setDefault('Asia/Jerusalem');
   }
 
-  async scrape(credentials: ScraperCredentials): Promise<ScaperScrapingResult> {
-    this.emitProgress(ScaperProgressTypes.StartScraping);
+  async scrape(credentials: ScraperCredentials): Promise<ScraperScrapingResult> {
+    this.emitProgress(ScraperProgressTypes.StartScraping);
     await this.initialize();
 
     let loginResult;
@@ -212,27 +212,27 @@ export class BaseScraper {
     } catch (e) {
       scrapeResult = createGenericError(e.message);
     }
-    this.emitProgress(ScaperProgressTypes.EndScraping);
+    this.emitProgress(ScraperProgressTypes.EndScraping);
 
     return scrapeResult;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/require-await
-  async login(_credentials: Record<string, string>): Promise<ScaperLoginResult> {
+  async login(_credentials: Record<string, string>): Promise<ScraperLoginResult> {
     throw new Error(`login() is not created in ${this.options.companyId}`);
   }
 
   // eslint-disable-next-line  @typescript-eslint/require-await
-  async fetchData(): Promise<ScaperScrapingResult> {
+  async fetchData(): Promise<ScraperScrapingResult> {
     throw new Error(`fetchData() is not created in ${this.options.companyId}`);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/require-await
   async terminate(_success: boolean) {
-    this.emitProgress(ScaperProgressTypes.Terminating);
+    this.emitProgress(ScraperProgressTypes.Terminating);
   }
 
-  emitProgress(type: ScaperProgressTypes) {
+  emitProgress(type: ScraperProgressTypes) {
     this.emit(SCRAPE_PROGRESS, { type });
   }
 

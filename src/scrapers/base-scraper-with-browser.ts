@@ -2,7 +2,7 @@ import puppeteer, { Browser, Frame, Page } from 'puppeteer';
 
 import {
   ScraperErrorTypes,
-  BaseScraper, ScaperScrapingResult, ScaperProgressTypes,
+  BaseScraper, ScraperScrapingResult, ScraperProgressTypes,
   ScraperCredentials,
 } from './base-scraper';
 import { getCurrentUrl, waitForNavigation } from '../helpers/navigation';
@@ -78,11 +78,11 @@ async function getKeyByValue(object: PossibleLoginResults, value: string, page: 
 function handleLoginResult(scraper: BaseScraperWithBrowser, loginResult: LoginResults) {
   switch (loginResult) {
     case LoginResults.Success:
-      scraper.emitProgress(ScaperProgressTypes.LoginSuccess);
+      scraper.emitProgress(ScraperProgressTypes.LoginSuccess);
       return { success: true };
     case LoginResults.InvalidPassword:
     case LoginResults.UnknownError:
-      scraper.emitProgress(ScaperProgressTypes.LoginFailed);
+      scraper.emitProgress(ScraperProgressTypes.LoginFailed);
       return {
         success: false,
         errorType: loginResult === LoginResults.InvalidPassword ? ScraperErrorTypes.InvalidPassword :
@@ -90,7 +90,7 @@ function handleLoginResult(scraper: BaseScraperWithBrowser, loginResult: LoginRe
         errorMessage: `Login failed with ${loginResult} error`,
       };
     case LoginResults.ChangePassword:
-      scraper.emitProgress(ScaperProgressTypes.ChangePassword);
+      scraper.emitProgress(ScraperProgressTypes.ChangePassword);
       return {
         success: false,
         errorType: ScraperErrorTypes.ChangePassword,
@@ -100,7 +100,7 @@ function handleLoginResult(scraper: BaseScraperWithBrowser, loginResult: LoginRe
   }
 }
 
-function createGeneralError(): ScaperScrapingResult {
+function createGeneralError(): ScraperScrapingResult {
   return {
     success: false,
     errorType: ScraperErrorTypes.General,
@@ -225,7 +225,7 @@ class BaseScraperWithBrowser extends BaseScraper {
     }
   }
 
-  async login(credentials: Record<string, string>): Promise<ScaperScrapingResult> {
+  async login(credentials: Record<string, string>): Promise<ScraperScrapingResult> {
     if (!credentials || !this.page) {
       return createGeneralError();
     }
@@ -262,7 +262,7 @@ class BaseScraperWithBrowser extends BaseScraper {
     } else {
       await loginOptions.submitButtonSelector();
     }
-    this.emitProgress(ScaperProgressTypes.LoggingIn);
+    this.emitProgress(ScraperProgressTypes.LoggingIn);
 
     if (loginOptions.postAction) {
       debug('execute \'postAction\' interceptor provided in login options');
@@ -281,7 +281,7 @@ class BaseScraperWithBrowser extends BaseScraper {
 
   async terminate(_success: boolean) {
     debug(`terminating browser with success = ${_success}`);
-    this.emitProgress(ScaperProgressTypes.Terminating);
+    this.emitProgress(ScraperProgressTypes.Terminating);
 
     if (!_success && !!this.options.storeFailureScreenShotPath) {
       debug(`create a snapshot before terminated in ${this.options.storeFailureScreenShotPath}`);

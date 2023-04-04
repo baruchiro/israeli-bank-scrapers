@@ -11,7 +11,7 @@ import {
   TransactionStatuses,
   TransactionTypes,
 } from '../transactions';
-import { ScraperOptions, ScaperScrapingResult, ScraperCredentials } from './base-scraper';
+import { ScraperOptions, ScraperScrapingResult, ScraperCredentials } from './base-scraper';
 import {
   DOLLAR_CURRENCY, DOLLAR_CURRENCY_SYMBOL, EURO_CURRENCY, EURO_CURRENCY_SYMBOL, SHEKEL_CURRENCY, SHEKEL_CURRENCY_SYMBOL,
 } from '../constants';
@@ -455,7 +455,7 @@ class VisaCalScraper extends BaseScraperWithBrowser {
     };
   }
 
-  async fetchData(): Promise<ScaperScrapingResult> {
+  async fetchData(): Promise<ScraperScrapingResult> {
     const defaultStartMoment = moment().subtract(1, 'years').add(1, 'day');
     const startDate = this.options.startDate || defaultStartMoment.toDate();
     const startMoment = moment.max(defaultStartMoment, moment(startDate));
