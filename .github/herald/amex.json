@@ -1,0 +1,8 @@
+{
+  "name": "Amex code owners",
+  "description": "Mention Amex volunteer testers from issue #830. Also fires on the shared isracard/amex base scraper.",
+  "action": "comment",
+  "includes": ["src/scrapers/amex.ts", "src/scrapers/amex.test.ts", "src/scrapers/base-isracard-amex.ts"],
+  "users": ["daniel-hauser"],
+  "customMessage": "📊 This PR changes the **Amex** scraper. cc @daniel-hauser — as a volunteer code owner for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

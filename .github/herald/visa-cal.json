@@ -1,0 +1,8 @@
+{
+  "name": "Cal code owners",
+  "description": "Mention Cal (visa-cal) volunteer testers from issue #830.",
+  "action": "comment",
+  "includes": ["src/scrapers/visa-cal.ts", "src/scrapers/visa-cal.test.ts"],
+  "users": ["baruchiro", "galbarm", "daniel-hauser", "idryzhov", "geriamir"],
+  "customMessage": "📊 This PR changes the **Cal** scraper. cc @baruchiro @galbarm @daniel-hauser @idryzhov @geriamir — as volunteer code owners for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

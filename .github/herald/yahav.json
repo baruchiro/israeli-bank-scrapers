@@ -1,0 +1,8 @@
+{
+  "name": "Yahav code owners",
+  "description": "Mention Yahav volunteer testers from issue #830.",
+  "action": "comment",
+  "includes": ["src/scrapers/yahav.ts", "src/scrapers/yahav.test.ts"],
+  "users": ["gczobel"],
+  "customMessage": "📊 This PR changes the **Yahav** scraper. cc @gczobel — as a volunteer code owner for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

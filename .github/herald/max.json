@@ -1,0 +1,8 @@
+{
+  "name": "Max code owners",
+  "description": "Mention Max volunteer testers from issue #830.",
+  "action": "comment",
+  "includes": ["src/scrapers/max.ts", "src/scrapers/max.test.ts"],
+  "users": ["baruchiro", "galbarm", "daniel-hauser", "dimdimi4", "idryzhov"],
+  "customMessage": "📊 This PR changes the **Max** scraper. cc @baruchiro @galbarm @daniel-hauser @dimdimi4 @idryzhov — as volunteer code owners for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

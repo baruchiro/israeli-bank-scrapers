@@ -1,0 +1,8 @@
+{
+  "name": "Hapoalim code owners",
+  "description": "Mention Hapoalim volunteer testers from issue #830.",
+  "action": "comment",
+  "includes": ["src/scrapers/hapoalim.ts", "src/scrapers/hapoalim.test.ts"],
+  "users": ["galbarm", "daniel-hauser"],
+  "customMessage": "📊 This PR changes the **Hapoalim** scraper. cc @galbarm @daniel-hauser — as volunteer code owners for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

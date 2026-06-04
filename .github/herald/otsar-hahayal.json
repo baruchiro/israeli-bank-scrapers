@@ -1,0 +1,8 @@
+{
+  "name": "Otsar Hahayal code owners",
+  "description": "Mention Otsar Hahayal volunteer testers from issue #830. Also fires on the shared beinleumi-group base scraper.",
+  "action": "comment",
+  "includes": ["src/scrapers/otsar-hahayal.ts", "src/scrapers/otsar-hahayal.test.ts", "src/scrapers/base-beinleumi-group.ts"],
+  "users": ["matanelgabsi", "kapel2208"],
+  "customMessage": "📊 This PR changes the **Otsar Hahayal** scraper. cc @matanelgabsi @kapel2208 — as volunteer code owners for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

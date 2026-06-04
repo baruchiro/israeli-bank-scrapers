@@ -1,0 +1,98 @@
+# Auto-labels PRs by which bank scraper they touch.
+# Consumed by actions/labeler (see .github/workflows/label-banks.yml).
+# Format: https://github.com/actions/labeler
+
+"scraper: hapoalim":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/hapoalim.ts'
+          - 'src/scrapers/hapoalim.test.ts'
+
+"scraper: leumi":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/leumi.ts'
+          - 'src/scrapers/leumi.test.ts'
+
+"scraper: discount":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/discount.ts'
+          - 'src/scrapers/discount.test.ts'
+
+"scraper: mizrahi":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/mizrahi.ts'
+          - 'src/scrapers/mizrahi.test.ts'
+
+"scraper: max":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/max.ts'
+          - 'src/scrapers/max.test.ts'
+
+"scraper: visa-cal":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/visa-cal.ts'
+          - 'src/scrapers/visa-cal.test.ts'
+
+"scraper: isracard":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/isracard.ts'
+          - 'src/scrapers/isracard.test.ts'
+          - 'src/scrapers/base-isracard-amex.ts'
+
+"scraper: amex":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/amex.ts'
+          - 'src/scrapers/amex.test.ts'
+          - 'src/scrapers/base-isracard-amex.ts'
+
+"scraper: beinleumi":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/beinleumi.ts'
+          - 'src/scrapers/beinleumi.test.ts'
+          - 'src/scrapers/base-beinleumi-group.ts'
+
+"scraper: otsar-hahayal":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/otsar-hahayal.ts'
+          - 'src/scrapers/otsar-hahayal.test.ts'
+          - 'src/scrapers/base-beinleumi-group.ts'
+
+"scraper: massad":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/massad.ts'
+          - 'src/scrapers/base-beinleumi-group.ts'
+
+"scraper: union":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/union-bank.ts'
+          - 'src/scrapers/union-bank.test.ts'
+
+"scraper: yahav":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/yahav.ts'
+          - 'src/scrapers/yahav.test.ts'
+
+"scraper: beyahad-bishvilha":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/beyahad-bishvilha.ts'
+          - 'src/scrapers/beyahad-bishvilha.test.ts'
+
+"scraper: one-zero":
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'src/scrapers/one-zero.ts'
+          - 'src/scrapers/one-zero.test.ts'
+          - 'src/scrapers/one-zero-queries.ts'

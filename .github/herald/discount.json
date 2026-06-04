@@ -1,0 +1,8 @@
+{
+  "name": "Discount / Mercantile code owners",
+  "description": "Mention Discount volunteer testers from issue #830. Mercantile has no dedicated scraper file (it is part of the Discount group), so its owners are mentioned here too.",
+  "action": "comment",
+  "includes": ["src/scrapers/discount.ts", "src/scrapers/discount.test.ts"],
+  "users": ["galbarm", "EzzatQ", "kfirarad"],
+  "customMessage": "📊 This PR changes the **Discount** scraper (also covers **Mercantile**). cc @galbarm @EzzatQ @kfirarad — as volunteer code owners for these banks (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

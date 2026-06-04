@@ -1,0 +1,23 @@
+name: Label banks
+
+# Auto-applies "scraper: <bank>" labels based on which files a PR changes.
+# Uses pull_request_target so it works on PRs from forks, and it never checks
+# out or runs PR code — actions/labeler only reads the changed-file list and
+# the config from the base branch via the API.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      # actions/labeler@v6 pinned to commit SHA (v6.1.0)
+      - uses: actions/labeler@f27b608878404679385c85cfa523b85ccb86e213
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          sync-labels: true

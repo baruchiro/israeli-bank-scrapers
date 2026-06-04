@@ -1,0 +1,8 @@
+{
+  "name": "Mizrahi code owners",
+  "description": "Mention Mizrahi volunteer testers from issue #830.",
+  "action": "comment",
+  "includes": ["src/scrapers/mizrahi.ts", "src/scrapers/mizrahi.test.ts"],
+  "users": ["baruchiro", "simonlsk"],
+  "customMessage": "📊 This PR changes the **Mizrahi** scraper. cc @baruchiro @simonlsk — as volunteer code owners for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

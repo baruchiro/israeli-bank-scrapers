@@ -1,0 +1,8 @@
+{
+  "name": "Leumi code owners",
+  "description": "Mention Leumi volunteer testers from issue #830.",
+  "action": "comment",
+  "includes": ["src/scrapers/leumi.ts", "src/scrapers/leumi.test.ts"],
+  "users": ["dimdimi4", "idryzhov", "geriamir"],
+  "customMessage": "📊 This PR changes the **Leumi** scraper. cc @dimdimi4 @idryzhov @geriamir — as volunteer code owners for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

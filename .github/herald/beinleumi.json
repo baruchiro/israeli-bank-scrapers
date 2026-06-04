@@ -1,0 +1,8 @@
+{
+  "name": "Beinleumi code owners",
+  "description": "Mention Beinleumi volunteer testers from issue #830. Also fires on the shared beinleumi-group base scraper.",
+  "action": "comment",
+  "includes": ["src/scrapers/beinleumi.ts", "src/scrapers/beinleumi.test.ts", "src/scrapers/base-beinleumi-group.ts"],
+  "users": ["whatuserever", "Nic3Guy"],
+  "customMessage": "📊 This PR changes the **Beinleumi** scraper. cc @whatuserever @Nic3Guy — as volunteer code owners for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

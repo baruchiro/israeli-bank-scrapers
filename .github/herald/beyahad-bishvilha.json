@@ -1,0 +1,8 @@
+{
+  "name": "Behatsdaa (Beyahad Bishvilha) code owners",
+  "description": "Mention Beyahad Bishvilha / Behatsdaa volunteer testers from issue #830.",
+  "action": "comment",
+  "includes": ["src/scrapers/beyahad-bishvilha.ts", "src/scrapers/beyahad-bishvilha.test.ts"],
+  "users": ["daniel-hauser"],
+  "customMessage": "📊 This PR changes the **Beyahad Bishvilha (Behatsdaa)** scraper. cc @daniel-hauser — as a volunteer code owner for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}

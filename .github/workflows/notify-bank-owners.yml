@@ -1,0 +1,31 @@
+name: Notify bank owners
+
+# Mentions the volunteer code owners (from issue #830) of whichever bank
+# scraper a PR touches, asking them to help test it against their account.
+#
+# Security: runs on pull_request_target so the GITHUB_TOKEN can comment on PRs
+# from forks. The checkout below pulls the BASE branch (the trusted target
+# repo), NOT the PR head — Herald only needs the rule files in .github/herald
+# and the changed-file list from the event payload. No PR code is executed.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks out the base branch (default ref for pull_request_target) so
+      # Herald can read .github/herald/*.json. Does not check out PR code.
+      - uses: actions/checkout@v4
+
+      # gagoar/use-herald-action@v2.3.0 pinned to commit SHA.
+      - uses: gagoar/use-herald-action@d711b21ba2cb51b18ab1de3446cfaa5fded47c32
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          rulesLocation: '.github/herald/*.json'
+          base: ${{ github.event.pull_request.base.ref }}

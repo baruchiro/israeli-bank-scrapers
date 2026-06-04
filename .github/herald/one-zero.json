@@ -1,0 +1,8 @@
+{
+  "name": "One Zero code owners",
+  "description": "Mention One Zero volunteer testers from issue #830.",
+  "action": "comment",
+  "includes": ["src/scrapers/one-zero.ts", "src/scrapers/one-zero.test.ts", "src/scrapers/one-zero-queries.ts"],
+  "users": ["tomerroditi"],
+  "customMessage": "📊 This PR changes the **One Zero** scraper. cc @tomerroditi — as a volunteer code owner for this bank (see #830), could you help test it against your account? Optional and non-blocking. 🙏"
+}
